@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 public class Bird extends Thread {
 
@@ -22,31 +21,44 @@ public class Bird extends Thread {
          this.speed = Constants.START_SPEED;
          this.isFlying = true;
          this.image = new ImageIcon("player.png");
+
      }
 
     public void run() {
-        while (true){
-            if (this.isFlying) {
-                this.x += this.speed;
-                this.speed+=Constants.INCREAS_ֹSPEED;
-            }
-        }
+       new Thread(()->{
+           while (true){
+               if (this.isFlying) {
+                   this.x+=this.speed;
+//                   this.x += this.speed;
+//                   this.speed+=Constants.INCREAS_ֹSPEED;
+                   Utils.sleep(100);
+               }
+           }
+       }).start();
     }
 
 
     public void paint(Graphics graphics)
     {
         graphics.drawImage(this.image.getImage(),this.x,this.y,this.width, this.height,null );
+      //  graphics.fillOval(this.x,this.y,this.width,this.height);
     }
 
-    public void setFlying(boolean status)
+    public void stopFlying()
     {
-        this.isFlying =status;
+        this.isFlying =false;
     }
 
-    public void setSpeed(int speed)
+    public void increaseSpeed()
     {
-        this.speed =speed;
+        this.speed++;
+    }
+
+    public void moveUp(){
+         this.y-=30;
+    }
+    public void moveDown(){
+        this.y++;
     }
 
 }
