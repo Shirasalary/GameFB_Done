@@ -13,7 +13,7 @@ public class FlappyBird extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLayout(null);
         this.setLocationRelativeTo(null);
-        this.setTitle("Flappy Bird by Shira & Hila");
+        this.setTitle("Flappy Bird by Shira & Hila & Sara");
         MenuGame menu = new MenuGame(Constants.X_WINDOW, Constants.Y_WINDOW, Constants.WINDOW_WIDTH, Constants.WINDOW_HEIGHT);
         this.add(menu);
         this.setVisible(true);

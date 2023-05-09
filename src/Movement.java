@@ -17,15 +17,16 @@ public class Movement implements KeyListener {
 
 
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_UP){
-            this.bird.moveUp();
-            System.out.println("keyPressed");
+        if (e.getKeyCode() == KeyEvent.VK_SPACE ){
+            this.bird.stopFlying();
+            this.bird.setPlayerMovement(true);
+
         }
-        System.out.println("keyPressed");
     }
 
 
     public void keyReleased(KeyEvent e) {
-        System.out.println("keyReleased");
+        this.bird.returnFlying();
+        this.bird.setPlayerMovement(false);
     }
 }

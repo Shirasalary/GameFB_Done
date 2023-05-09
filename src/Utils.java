@@ -19,4 +19,12 @@ public class Utils {
         }
 
     }
+
+    public static JLabel newLabel (String text, int x, int y )
+    {
+        JLabel label = new JLabel(text);
+        label.setBounds(x,y,Constants.LABEL_WIDTH,Constants.LABEL_HEIGHT);
+        label.setFont(Constants.myFont);
+        return label;
+    }
 }
